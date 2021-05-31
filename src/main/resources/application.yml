@@ -10,9 +10,9 @@ spring:
 spring:
   profile: local-dev
   datasource:
-    url: jdbc:postgresql://localhost:5432/Blogs
+    url: jdbc:postgresql://postgresql:5432/Blogs
     username : postgres
-    password :  1234
+    password :  password
   jpa:
     properties:
       hibernate:

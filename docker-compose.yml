@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+     spring-app:
+          build:
+               context: .
+          container_name: spring-app
+          ports:
+               - "8080:8080"
+          depends_on: 
+               - postgresql
+          environment:
+               - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/Blogs
+               - SPRING_DATASOURCE_USERNAME=postgres
+               - SPRING_DATASOURCE_PASSWORD=password
+               - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+     
+     postgresql:
+          image: postgres:latest
+          container_name: postgresql
+          ports:
+               - "5433:5432"
+          environment:
+               - POSTGRES_USER=postgres
+               - POSTGRES_PASSWORD=password
+               - POSTGRES_DB=Blogs
